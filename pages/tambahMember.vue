@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <h1>Tambah Member Baru</h1>
+    <form @submit.prevent="simpan()">
+      <input v-model="nama" placeholder="Nama"> <br>
+      <input v-model="kelas" placeholder="Kelas"> <br>
+      <button type="submit">Kirim</button>
+      <NuxtLink to="/">Kembali</NuxtLink>
+    </form>
+  </div>
+</template>
+
+<script setup>
+const supabase = useSupabaseClient()
+const nama = ref()
+const kelas = ref()
+
+async function simpan() {
+  await supabase
+  .from("member")
+  .insert({
+    nama: nama.value,
+    kelas: kelas.value,
+  })
+  navigateTo("/")
+}
+</script>
