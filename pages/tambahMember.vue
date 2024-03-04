@@ -5,7 +5,6 @@
       <input v-model="nama" placeholder="Nama"> <br>
       <input v-model="kelas" placeholder="Kelas"> <br>
       <button type="submit">Kirim</button>
-      <NuxtLink to="/">Kembali</NuxtLink>
     </form>
   </div>
 </template>
