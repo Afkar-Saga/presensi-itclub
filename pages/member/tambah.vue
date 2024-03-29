@@ -6,6 +6,7 @@
       <input v-model="kelas" placeholder="Kelas"> <br>
       <button type="submit">Kirim</button>
     </form>
+    <NuxtLink to="/member">Members</NuxtLink>
   </div>
 </template>
 
@@ -20,7 +21,8 @@ async function simpan() {
   .insert({
     nama: nama.value,
     kelas: kelas.value,
+    token: Math.random().toString(36).substring(2).slice(0, 6)
   })
-  navigateTo("/")
+  navigateTo("/member")
 }
 </script>

@@ -13,7 +13,7 @@
   </form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const supabase = useSupabaseClient()
 let kelas = ref()
 let member = ref()
