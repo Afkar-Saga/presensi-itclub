@@ -14,7 +14,7 @@
           <td>{{ index + 1 }}</td>
           <td>{{ member.tanggal }}</td>
           <td>{{ member.member.nama }}</td>
-          <td>{{ member.member.kelas }}</td>
+          <td>{{ member.member.kelas.nama }}</td>
         </tr>
       </tbody>
     </table>
@@ -27,7 +27,12 @@ const supabase = useSupabaseClient()
 const { data: kehadiran } = await useAsyncData('kehadiran', async() => {
   const { data } = await supabase.from('kehadiran').select(`
     tanggal,
-    member ( * )
+    member ( 
+      *,
+      kelas (
+        nama
+      )
+    )
   `)
   return data
 })

@@ -3,11 +3,11 @@
     <h1>Tambah Member Baru</h1>
     <form @submit.prevent="simpan()">
       <UInput v-model="nama" placeholder="Nama" /> <br>
-      <select v-model="kelas">
+      Kelas: <select v-model="kelas">
         <option value="" disabled>Kelas</option>
         <option v-for="clas in classes" :value="clas.id">{{ clas.nama }}</option>
       </select> <br>
-      <button type="submit">Kirim</button>
+      <UButton type="submit">Kirim</UButton>
     </form>
     <NuxtLink to="/member">Members</NuxtLink>
   </div>

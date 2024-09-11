@@ -1,15 +1,11 @@
 <template>
   <form @submit.prevent="isiKehadiran">
-    <select v-model="kelas" @change="getMemberByKelas">
-      <option disabled value="">Kelas?</option>
-      <option v-for="member in members">{{ member.kelas }}</option>
-    </select>
-    <select v-model="member" :disabled="!kelas" @change="getTokenByMember">
+    <select v-model="member" @change="getTokenByMember">
       <option disabled value="">Select member</option>
-      <option :value="member.id" v-for="member in memberKelas">{{ member.nama }}</option>
+      <option :value="member.id" v-for="member in members">{{ member.nama }}</option>
     </select>
     <input type="text" maxlength="6" v-model="token" :disabled="!member">
-    <input type="submit" :disabled="!kelas || !member" value="Absen">
+    <input type="submit" value="Absen">
   </form>
 </template>
 
@@ -22,7 +18,7 @@ let tokenMember = ref()
 let memberKelas = ref([])
 
 async function getMemberByKelas() {
-  const { data, error } = await supabase.from('member').select().eq('kelas', kelas.value)
+  const { data, error } = await supabase.from('kelas').select().eq('kelas', kelas.value)
   memberKelas.value = data
 }
 
