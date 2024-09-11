@@ -2,8 +2,11 @@
   <div>
     <h1>Tambah Member Baru</h1>
     <form @submit.prevent="simpan()">
-      <input v-model="nama" placeholder="Nama"> <br>
-      <input v-model="kelas" placeholder="Kelas"> <br>
+      <UInput v-model="nama" placeholder="Nama" /> <br>
+      <select v-model="kelas">
+        <option value="" disabled>Kelas</option>
+        <option v-for="clas in classes" :value="clas.id">{{ clas.nama }}</option>
+      </select> <br>
       <button type="submit">Kirim</button>
     </form>
     <NuxtLink to="/member">Members</NuxtLink>
@@ -13,7 +16,8 @@
 <script setup>
 const supabase = useSupabaseClient()
 const nama = ref()
-const kelas = ref()
+const kelas = ref(0)
+const classes = ref([])
 
 async function simpan() {
   await supabase
@@ -25,4 +29,18 @@ async function simpan() {
   })
   navigateTo("/member")
 }
+
+async function fetchKelas() {
+  const { data, error } = await supabase
+  .from('kelas')
+  .select('*')
+  if (error) throw error
+  if (data) {
+    classes.value = data
+  }
+}
+
+onMounted(() => {
+  fetchKelas()
+})
 </script>
