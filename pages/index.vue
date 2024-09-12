@@ -4,3 +4,7 @@
   <NuxtLink to="/kehadiran">Cek Kehadiran</NuxtLink>
   <NuxtLink to="/login">Login</NuxtLink>
 </template>
+
+<style scoped>
+
+</style>

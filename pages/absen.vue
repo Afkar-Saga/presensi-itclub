@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="isiKehadiran">
+  <form @submit.prevent.once="isiKehadiran">
     <select v-model="member" @change="getTokenByMember">
       <option disabled value="">Select member</option>
       <option :value="member.id" v-for="member in members">{{ member.nama }}</option>
