@@ -34,8 +34,8 @@
         <tr class="border-b bg-gray-50 hover:bg-gray-100" v-for="(member, index) in kehadiran" :key="member.id">
           <td class="py-2 px-4 text-gray-700">{{ index + 1 }}</td>
           <td class="py-2 px-4 text-gray-700">{{ member.tanggal }}</td>
-          <td class="py-2 px-4 text-gray-700">{{ member.member.nama }}</td>
-          <td class="py-2 px-4 text-gray-700">{{ member.member.kelas.nama }}</td>
+          <td class="py-2 px-4 text-gray-700">{{ member.member?.nama }}</td>
+          <td class="py-2 px-4 text-gray-700">{{ member.member?.kelas?.nama }}</td>
         </tr>
       </tbody>
     </table>

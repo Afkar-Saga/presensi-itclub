@@ -12,11 +12,11 @@
       <h2 class="text-2xl text-center text-black font-bold mb-6">LOGIN</h2>
 
       <div class="mb-4">
-        <input v-model="email" type="email" placeholder="Email" class="w-full border border-gray-700 bg-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input v-model="email" type="email" placeholder="Email" class="w-full border border-gray-700 bg-white text-black rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
 
       <div class="mb-4">
-        <input v-model="password" type="password" placeholder="Password" class="w-full border border-gray-700 bg-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input v-model="password" type="password" placeholder="Password" class="w-full border border-gray-700 bg-white text-black rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
 
       <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>

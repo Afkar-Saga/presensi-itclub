@@ -45,20 +45,39 @@ const { data: members } = await useAsyncData("members", async () => {
 });
 
 async function isiKehadiran() {
-  if (token.value == tokenMember.value) {
-    const { error } = await supabase.from("kehadiran").insert([{ member: member.value }]);
-    if (!error) {
-      const { error } = await supabase
-        .from("member")
-        .update({
+  // if (token.value == tokenMember.value) {
+  //   const { error } = await supabase.from("kehadiran").insert([{ member: member.value }]);
+  //   if (!error) {
+  //     const { error } = await supabase
+  //       .from("member")
+  //       .update({
+  //         token: Math.random().toString(36).substring(2).slice(0, 6),
+  //       })
+  //       .eq("id", member.value);
+  //     if (error) console.log(error);
+  //   }
+  //   navigateTo("/kehadiran");
+  // } else {
+  //   alert("Token salah!");
+  // }
+  try {
+    if (token.value == tokenMember.value) {
+      const { error } = await supabase.from("kehadiran").insert({
+        member: member.value
+      })
+      if (error) throw error
+      else {
+        const { error } = await supabase.from("member").update({
           token: Math.random().toString(36).substring(2).slice(0, 6),
-        })
-        .eq("id", member.value);
-      if (error) console.log(error);
+        }).eq("id", member.value)
+        if (error) throw error
+        else navigateTo("/kehadiran")
+      }
+    } else {
+      alert("Token salah!")
     }
-    navigateTo("/kehadiran");
-  } else {
-    alert("Token salah!");
+  } catch (error) {
+    console.error(error)
   }
 }
 </script>

@@ -23,7 +23,7 @@
             <td class="py-2 px-4 text-gray-700">{{ index + 1 }}</td>
             <td class="py-2 px-4 text-gray-700">{{ member.nama }}</td>
             <td class="py-2 px-4 text-gray-700">{{ member.kelas?.nama }}</td>
-            <td class="py-2 px-4 text-gray-700">{{ member.token }}</td>
+            <td v-if="user" class="py-2 px-4 text-gray-700">{{ member.token }}</td>
             <td v-if="user">
               <UButton label="✏️" @click="openEditMode(member.id)" />
             </td>
