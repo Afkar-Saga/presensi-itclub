@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto p-4">
-    <form @submit.prevent.once="isiKehadiran" class="max-w-lg mx-auto bg-white p-6 border border-gray-200 rounded-lg shadow-lg">
+    <form @submit.prevent="isiKehadiran" class="max-w-lg mx-auto bg-white p-6 border border-gray-200 rounded-lg shadow-lg">
       <h2 class="text-2xl text-black text-center font-bold mb-6">FORM PRESENSI</h2>
 
       <div class="mb-4">
